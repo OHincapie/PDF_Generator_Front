@@ -6,12 +6,12 @@ import { PdfService } from 'src/app/services/pdf.service';
 
 @Component({
   selector: 'mamada',
-  templateUrl: './pdf.component.html',
-  styleUrls: ['./pdf.component.scss']
+  templateUrl: './pdf.component.html'
 })
 export class PdfComponent implements OnInit {
 
-  public formGroup: FormGroup;
+  public formGroup!: FormGroup;
+  public blob: any;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -44,15 +44,20 @@ export class PdfComponent implements OnInit {
         fechaFinEmpleado: this.formGroup.value.fechaFinEmpleado,
       }
       try {
-        this.pdfService.generatePdf(pdfReq).subscribe((data) => {
-          console.log('Hola');
-
+        this.pdfService.generatePdf(pdfReq).subscribe((data: any) => {
           console.log(data);
+
+          this.blob = new Blob([data], {type: 'application/pdf'});
+          const downloadUrl = window.URL.createObjectURL(data);
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.download = `Certificado - ${pdfReq.nombreEmpleado}.pdf`;
+          link.click()
         });
 
       } catch (error) {
         console.log(error);
-        
+
       }
     }
   }

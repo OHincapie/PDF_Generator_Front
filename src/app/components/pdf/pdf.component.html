@@ -1,25 +1,55 @@
-<h1>PDF</h1>
-<form [formGroup]="formGroup" (ngSubmit)="onSubmitForm()">
-    <div>
-        <label for="nombre">Nombre empleado</label>
-        <input type="text" id="nombre" formControlName="nombreEmpleado">
+<div style="background-color: #161853;">
+  <nav class="navbar" id="navbar-bg" style=" height: 70px;">
+    <div class="container d-flex justify-content-center">
     </div>
-    <div>
-        <label for="cedula">Cedula empleado</label>
-        <input type="number" id="cedula" formControlName="cedulaEmpleado">
-    </div>
-    <div>
-        <label for="salarioEmpleado">Salario empleado</label>
-        <input type="number" id="salarioEmpleado" formControlName="salarioEmpleado">
-    </div>
-    <div>
-        <label for="fechaI">Fecha Inicio</label>
-        <input type="text" id="fechaI" formControlName="fechaInicioEmpleado">
-    </div>
-    <div>
-        <label for="fechaF">Fecha Fin</label>
-        <input type="text" id="fechaF" formControlName="fechaFinEmpleado">
-    </div>
+  </nav>
+</div>
 
-    <button [disabled]="formGroup.invalid">Continuar</button>
-</form>
+<div style="background-color: #161853; min-height: 100vh;" class="d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-lg-3"></div>
+
+      <div class="col-sm-12 col-md-4 col-lg-6">
+        <div class="card card-body m-2" style="background-color: #121212; color: white;">
+          <h1 class="text-center">CERTIFICADO LABORAL PDF</h1>
+
+          <form [formGroup]="formGroup" (ngSubmit)="onSubmitForm()">
+            <label for="nombre">NOMBRE Y APELLIDO DEL EMPLEADO:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-user"></i></span>
+                <input id="nombre" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="nombreEmpleado">
+            </div>
+            <label for="cedula">CEDULA DEL EMPLEADO:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-id-badge"></i></span>
+                <input id="cedula" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="cedulaEmpleado">
+            </div>
+            <label for="salarioEmpleado">SALARIO DEL EMPLEADO:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-dollar-sign"></i></span>
+                <input id="salarioEmpleado" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="salarioEmpleado">
+            </div>
+            <label for="fechaI">FECHA DE INICIO DEL EMPLEADO:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-calendar-days"></i></span>
+                <input id="fechaI" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="fechaInicioEmpleado">
+            </div>
+            <label for="fechaF">FECHA DE FIN DEL EMPLEADO:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-calendar-days"></i></span>
+                <input id="fechaF" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="fechaFinEmpleado">
+            </div>
+            <div class="d-grid text-center py-3">
+              <button type="submit" class="btn btn-primary btn-lg" [disabled]="formGroup.invalid">GENERAR CERTIFICADO</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3"></div>
+    </div>
+  </div>
+</div>
+<div style="background-color: #161853; height: 80px;">
+</div>
